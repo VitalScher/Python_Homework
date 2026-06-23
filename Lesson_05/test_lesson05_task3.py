@@ -11,11 +11,12 @@ def test_multiple_elements():
     
     for i, link in enumerate(links):
         assert link.is_displayed()
-        if i == 0:
-            assert links[i].text == "1"
-        else:
-            AssertionError('Текст первой ссылки содержит "1"')
+ #       if i == 0:
+ #           assert links[i].text == "1"
+ #       else:
+ #           AssertionError('Текст первой ссылки содержит "1"')
     
     assert len(links) == 9
+    assert links[0].text == "1"
 
-    driver.quit
+    driver.quit()
