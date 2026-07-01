@@ -1,1 +1,3 @@
 pytest: pytest~=9.1.1
+selenium: selenium ~=4.45.0
+faker: faker ~=40.23.0
