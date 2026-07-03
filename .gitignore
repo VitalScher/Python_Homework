@@ -3,6 +3,11 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# My file
+00_Work/
+authorization_page.py
+
+
 # C extensions
 *.so
 
