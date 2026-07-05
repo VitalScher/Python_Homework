@@ -2,3 +2,5 @@ pytest: pytest~=9.1.1
 selenium: selenium ~=4.45.0
 faker: faker ~=40.23.0
 requests: requests ~=2.34.2
+SQLAlchemy: SQLAlchemy ~=2.0.51
+psycopg2: psycopg2 ~=2.9.12
