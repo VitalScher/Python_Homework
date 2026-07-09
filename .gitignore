@@ -6,6 +6,7 @@ __pycache__/
 # My file
 00_Work/
 authorization_page.py
+allure-result/
 
 
 # C extensions
