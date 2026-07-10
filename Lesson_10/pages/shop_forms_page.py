@@ -21,6 +21,12 @@ class ShopFormsPage:
     TOTAL_SUM = (By.CSS_SELECTOR, ".summary_total_label")
 
     def __init__(self, driver):
+        """Конструктор задает начальное значение параметров теста.
+
+        :param driver: WebDriver — объект драйвера Selenium.
+        :param wait: WebDriverWait - объект драйвера Selenium.
+        :param fields: dict - словарь содержащий строковые значения полей login, password, first_name, last_name, zip_code.
+        """
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
         self.fields = {
@@ -34,7 +40,10 @@ class ShopFormsPage:
     @allure.step("Авторизация на странице интернет магазина по паре логин: пароль")
     def authorization(self) -> None:
         """
-        Функция вводит заданную пару логин: пароль на странице авторизации интернет магазина
+        Функция вводит заданную пару логин: пароль на странице авторизации интернет магазина.
+
+        :param fields: str - значения полей.
+        :param button: str — текст на кнопке, которую нужно нажать.
         """
         input_login = self.driver.find_element(*self.USER_NAME)
         input_login.send_keys(self.fields["login"])
@@ -48,7 +57,9 @@ class ShopFormsPage:
     @allure.step("Выбор набора товаров на главной странице магазина (товары заданы в теле теста). После завершения выбора осуществляется переход в корзину")
     def shop(self) -> None:
         """
-        Функция выбирает определенный набор товаров на главной странице магазина и переходит в корзину
+        Функция выбирает определенный набор товаров на главной странице магазина и переходит в корзину.
+
+        :param button: str — текст на кнопке, которую нужно нажать.
         """
         self.wait.until(EC.url_contains("/inventory"))
 
@@ -67,7 +78,9 @@ class ShopFormsPage:
     @allure.step("Переход со страницы корзины в форму вводу данных почтового адреса")
     def cart(self) -> None:
         """
-        Функция осуществляет переход со страницы корзины в форму ввода почтого адреса
+        Функция осуществляет переход со страницы корзины в форму ввода почтого адреса.
+
+        :param button: str — текст на кнопке, которую нужно нажать.
         """
         self.wait.until(EC.url_contains("/cart"))
 
@@ -77,7 +90,10 @@ class ShopFormsPage:
     @allure.step("Ввод данных почтового адреса")
     def input_personal_data(self) -> None:
         """
-        Функция вводит заданные в тесте персональные данные для заполнения полей формы почтого адреса
+        Функция вводит заданные в тесте персональные данные для заполнения полей формы почтого адреса.
+
+        :param fields: str - значения полей.
+        :param button: str — текст на кнопке, которую нужно нажать.
         """
         self.wait.until(EC.url_contains("/checkout-step-one"))
 
@@ -99,7 +115,9 @@ class ShopFormsPage:
     @allure.step("Возврат итоговой суммы заказа")
     def sum(self) -> str:
         """
-        Функция возвращает итоговую сумму заказа для проверки
+        Функция возвращает итоговую сумму заказа для проверки.
+        
+        :param sum: str - сумма покупки.
         """
         self.wait.until(EC.url_contains("/checkout-step-two"))
 
